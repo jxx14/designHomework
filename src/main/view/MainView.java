@@ -6,6 +6,7 @@ package main.view;
 角色选择投降，对角色实施一定的惩罚
 */
 
+
 import main.model.enemy.Enemy;
 import main.model.role.Role;
 
@@ -20,7 +21,10 @@ public class MainView extends JFrame{
     public static final int VIEW_HEIGHT = 22;
     public static final int VIEW_NUMBER = 22;
     JLabel stationLabel=new JLabel("敌我属性:");
-
+    JPanel jta1 =new JPanel();
+    JPanel jta2 =new JPanel();
+    JPanel jta3 =new JPanel();
+    JPanel jta4 =new JPanel();
 
     public static void main(String[] args) {
         new MainView().choiceRole();
@@ -36,7 +40,7 @@ public class MainView extends JFrame{
     //战斗界面
     private void drawView(Role role) {
         this.setTitle(role.getName());    //设置显示窗口标
-        this.setLayout(new GridLayout(7,1));
+        this.setLayout(new GridLayout(4,1));
 
         Enemy enemy = new Enemy();
         enemy.setName("小鬼");
@@ -58,7 +62,6 @@ public class MainView extends JFrame{
         //技能设置
         JLabel skillLabel=new JLabel("技能类型:");
         JComboBox skillComboBox=new JComboBox();
-        skillComboBox.setPreferredSize(new Dimension(3,3));
         String[] skills={"不使用技能","技能1","技能2","技能组合"};
         for (int i = 0; i <skills.length ; i++) {
             skillComboBox.addItem(skills[i]);
@@ -81,17 +84,20 @@ public class MainView extends JFrame{
             equipmentComboBox.addItem(equipments[i]);
         }
 
-        this.getContentPane().add(stationLabel);
+        jta1.add(skillLabel);
+        jta1.add(skillComboBox);
+        jta2.add(weaponLabel);
+        jta2.add(weaponComboBox);
+        jta3.add(equipmentLabel);
+        jta3.add(equipmentComboBox);
+        jta4.add(stationLabel);
 
-        this.getContentPane().add(skillLabel);
-        this.getContentPane().add(skillComboBox);
+        this.add(jta4);
+        this.add(jta1);
+        this.add(jta2);
+        this.add(jta3);
 
-        this.getContentPane().add(weaponLabel);
-        this.getContentPane().add(weaponComboBox);
-
-        this.getContentPane().add(equipmentLabel);
-        this.getContentPane().add(equipmentComboBox);
-
+        JButton button =new JButton("确定");
 //        fight(role,enemy);
     }
 
