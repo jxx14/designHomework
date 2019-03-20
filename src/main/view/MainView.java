@@ -1,9 +1,7 @@
 package main.view;
 /*
 首先弹框：选择角色
-角色遇到敌人，给出弹框让角色选择
-角色选择战斗，根据战斗结果进行计算
-角色选择投降，对角色实施一定的惩罚
+角色选择参数战斗，根据战斗结果进行计算
 */
 
 
@@ -12,28 +10,25 @@ import main.model.role.Role;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 public class MainView extends JFrame{
 
     //游戏板块的参数
-    public static final int VIEW_WIDTH = 33;
-    public static final int VIEW_HEIGHT = 22;
-    public static final int VIEW_NUMBER = 22;
+    private static final int VIEW_WIDTH = 33;
+    private static final int VIEW_HEIGHT = 22;
+    private static final int VIEW_NUMBER = 22;
 
     JLabel stationLabel=new JLabel("敌我属性:");
-    JPanel jta1 =new JPanel();
-    JPanel jta2 =new JPanel();
-    JPanel jta3 =new JPanel();
-    JPanel jta4 =new JPanel();
-    JPanel jta5 =new JPanel();
+    private JPanel jta1 =new JPanel();
+    private JPanel jta2 =new JPanel();
+    private JPanel jta3 =new JPanel();
+    private JPanel jta4 =new JPanel();
+    private JPanel jta5 =new JPanel();
 
-    String skill;
-    String weapon;
-    String equipment;
+    private String skill;
+    private String weapon;
+    private String equipment;
 
     public static void main(String[] args) {
         new MainView().choiceRole();
@@ -65,8 +60,7 @@ public class MainView extends JFrame{
     public void fight(Role role,Enemy enemy) {
 
         //敌我属性
-        JLabel stationLabel=new JLabel("敌我属性:");
-//        System.out.println(role.getName()+enemy.getName());
+        JLabel stationLabel=new JLabel("敌我属性:"+"\n"+role.getName()+","+enemy.getName());
 
         //技能设置
         JLabel skillLabel=new JLabel("技能类型:");
@@ -75,12 +69,9 @@ public class MainView extends JFrame{
         for (int i = 0; i <skills.length ; i++) {
             skillComboBox.addItem(skills[i]);
         }
-        skillComboBox.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    skill =e.getItem().toString();
-                }
+        skillComboBox.addItemListener(e -> {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                skill =e.getItem().toString();
             }
         });
 
@@ -91,12 +82,9 @@ public class MainView extends JFrame{
         for (int i = 0; i <weapons.length ; i++) {
             weaponComboBox.addItem(weapons[i]);
         }
-        weaponComboBox.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    weapon =e.getItem().toString();
-                }
+        weaponComboBox.addItemListener(e -> {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                weapon =e.getItem().toString();
             }
         });
 
@@ -107,12 +95,9 @@ public class MainView extends JFrame{
         for (int i = 0; i <weapons.length ; i++) {
             equipmentComboBox.addItem(equipments[i]);
         }
-        equipmentComboBox.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (e.getStateChange() == ItemEvent.SELECTED) {
-                    equipment =e.getItem().toString();
-                }
+        equipmentComboBox.addItemListener(e -> {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                equipment =e.getItem().toString();
             }
         });
 
@@ -126,13 +111,10 @@ public class MainView extends JFrame{
 
         JButton jb = new JButton("确定");
         jta5.add(jb);
-        jb.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // 进行逻辑处理即可
-                System.out.println("武器："+weapon+"    技能："+skill+"    装备："+equipment);
-                //        fight(role,enemy);
-            }
+        jb.addActionListener(e -> {
+            // 进行逻辑处理即可
+            System.out.println("武器："+weapon+"    技能："+skill+"    装备："+equipment);
+                    fight(role,enemy);
         });
 
         this.add(jta4);
