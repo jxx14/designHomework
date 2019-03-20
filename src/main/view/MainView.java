@@ -6,8 +6,8 @@ package main.view;
 角色选择投降，对角色实施一定的惩罚
 */
 
-import main.model.Enemy;
-import main.model.Role;
+import main.model.enemy.Enemy;
+import main.model.role.Role;
 
 import javax.swing.*;
 import java.awt.*;

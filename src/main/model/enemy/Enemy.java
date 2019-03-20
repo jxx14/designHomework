@@ -1,10 +1,7 @@
-package main.model;
+package main.model.enemy;
 
-public class Role {
-    private String name;
-    public Role(String name) {
-        this.name = name;
-    }
+public class Enemy {
+    String name;
 
     public String getName() {
         return name;
