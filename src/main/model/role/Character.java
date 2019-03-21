@@ -17,7 +17,7 @@ public abstract class Character {
 	private String direction;
 	private List<Weapon> weapons;
 	private List<Equipment> equipments;
-	private int[] levelXps; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int[] levelXps; //±íÇý¶¯
 	
 	public abstract void levelUp(int xp, int currentLevel);
 	public abstract int getLevelFromXp(int xp);
