@@ -1,8 +1,4 @@
 package main.view;
-/*
-首先弹框：选择角色
-角色选择参数战斗，根据战斗结果进行计算
-*/
 
 
 import main.model.enemy.*;
@@ -38,8 +34,8 @@ public class MainView extends JFrame{
     //选择角色的对话框
     public void choiceRole() {
         String[] str={"role1","role2"};
-        int index;
-        Character newc;
+        int index = 0;
+        Character newc = null;
         String roleKind = JOptionPane.showInputDialog(null,"选择角色类型","选择角色类型",1,null,str,str[0]).toString();
         for(int i=0; i<str.length; i++){
         	if(roleKind == str[i]){
@@ -49,8 +45,8 @@ public class MainView extends JFrame{
         	case 0:
         		newc = new Character1(roleKind);
         	
-        	case 1:
-        		newc = new Character2(roleKind);
+        	//case 1:
+        	//	newc = new Character2(roleKind);
         	}
         }
         drawView(newc);
