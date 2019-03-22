@@ -12,7 +12,7 @@ public abstract class Character extends Role{
 	private int xp;
 	private List<Weapon> weapons;
 	private List<Equipment> equipments;
-	private static int[] levelXps; //表驱动
+	private int[] levelXps; //表驱动
 	
 	public abstract void levelUp(int xp, int currentLevel);
 	public abstract int getLevelFromXp(int xp);

@@ -5,8 +5,8 @@ package main.view;
 */
 
 
-import main.model.enemy.Enemy;
-import main.model.role.Role;
+import main.model.enemy.*;
+import main.model.role.*;
 import main.model.role.Character;
 
 import javax.swing.*;
@@ -38,8 +38,22 @@ public class MainView extends JFrame{
     //选择角色的对话框
     public void choiceRole() {
         String[] str={"role1","role2"};
+        int index;
+        Character newc;
         String roleKind = JOptionPane.showInputDialog(null,"选择角色类型","选择角色类型",1,null,str,str[0]).toString();
-        drawView(new Role(roleKind));
+        for(int i=0; i<str.length; i++){
+        	if(roleKind == str[i]){
+        		index = i;
+        	}
+        	switch(index){
+        	case 0:
+        		newc = new Character1(roleKind);
+        	
+        	case 1:
+        		newc = new Character2(roleKind);
+        	}
+        }
+        drawView(newc);
     }
 
     //战斗界面
@@ -47,8 +61,8 @@ public class MainView extends JFrame{
         this.setTitle(role.getName());    //设置显示窗口标
         this.setLayout(new GridLayout(5,1));
 
-        Enemy enemy = new Enemy();
-        enemy.setName("小鬼");
+        Enemy1 enemy = new Enemy1("小鬼");
+        //enemy.setName("小鬼");
         fight(role,enemy);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    //窗口是否可以关闭
@@ -126,11 +140,5 @@ public class MainView extends JFrame{
 
 
     }
-
-    /*
-    * 乱码测试
-    * */
-
-    //乱码测试
 
 }
