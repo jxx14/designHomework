@@ -57,7 +57,7 @@ public class MainView extends JFrame{
     }
 
     //战斗界面
-    private void drawView(Role role) {
+    private void drawView(Character role) {
         this.setTitle(role.getName());    //设置显示窗口标
         this.setLayout(new GridLayout(5,1));
 
@@ -72,10 +72,11 @@ public class MainView extends JFrame{
 
 
     //战斗
-    public void fight(Role role,Enemy enemy) {
+    public void fight(Character role,Enemy enemy) {
 
         //敌我属性
-        JLabel stationLabel=new JLabel("敌我属性:"+"\n"+role.getName()+","+enemy.getName());
+        JLabel stationLabel=new JLabel("敌我属性:"+"\n"+role.getName()+","+enemy.getName()
+        +"防御:"+role.getDefense()+","+enemy.getDefense());
 
         //技能设置
         JLabel skillLabel=new JLabel("技能类型:");
@@ -106,7 +107,7 @@ public class MainView extends JFrame{
         //装备设置
         JLabel equipmentLabel=new JLabel("装备类型:");
         JComboBox equipmentComboBox=new JComboBox();
-        String[]equipments={"不使用装备","装备1","装备2"};
+        String[] equipments={"不使用装备","装备1","装备2"};
         for (int i = 0; i <weapons.length ; i++) {
             equipmentComboBox.addItem(equipments[i]);
         }
