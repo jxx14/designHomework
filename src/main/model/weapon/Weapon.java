@@ -3,8 +3,7 @@ package main.model.weapon;
 import main.model.role.Item;
 
 public abstract class Weapon extends Item {
-	private String name;
-	private int level;
+
 	private int addDamage;
 
 	

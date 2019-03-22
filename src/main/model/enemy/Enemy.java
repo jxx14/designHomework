@@ -1,7 +1,10 @@
 package main.model.enemy;
 
-public class Enemy {
+public abstract class Enemy{
     String name;
+    private int hp;
+	private int defense;
+	private int attack;
 
     public String getName() {
         return name;

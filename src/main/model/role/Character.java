@@ -6,29 +6,31 @@ import main.model.weapon.Weapon;
 import java.util.List;
 
 
-public abstract class Character {
-	private String name;
+public abstract class Character extends Role{
+
 	private int level;
 	private int hp;
 	private int defense;
 	private int attack;
-	private Coordinate coordinate;
 	private int xp;
-	private String direction;
 	private List<Weapon> weapons;
 	private List<Equipment> equipments;
-	private int[] levelXps; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private static int[] levelXps; //±íÇý¶¯
 	
 	public abstract void levelUp(int xp, int currentLevel);
 	public abstract int getLevelFromXp(int xp);
 	public abstract int collectWeapon();
 	public abstract int collectEquipment();
-	public abstract void move(String direction);
+
 	public abstract void addWeapon(Weapon w);
 	public abstract void removeWeapon(Weapon w);
 	public abstract void addEquipment(Equipment e);
 	public abstract void removeEquipment(Equipment e);
 	
+	public Character(String name){
+		super();
+		this.name = name;
+	}
 	public String getName() {
 		return name;
 	}
@@ -40,12 +42,6 @@ public abstract class Character {
 	}
 	public void setLevel(int level) {
 		this.level = level;
-	}
-	public String getDirection() {
-		return direction;
-	}
-	public void setDirection(String direction) {
-		this.direction = direction;
 	}
 	public int getXp() {
 		return xp;
@@ -65,11 +61,6 @@ public abstract class Character {
 	public void setAttack(int attack) {
 		this.attack = attack;
 	}
-	public Coordinate getCoordinate() {
-		return coordinate;
-	}
-	public void setCoordinate(Coordinate coordinate) {
-		this.coordinate = coordinate;
 	}
 	public List<Weapon> getWeapons() {
 		return weapons;
