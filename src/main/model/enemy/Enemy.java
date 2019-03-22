@@ -1,10 +1,14 @@
 package main.model.enemy;
 
-public abstract class Enemy{
-    String name;
-    private int hp;
-	private int defense;
-	private int attack;
+import main.model.role.Role;
+
+public abstract class Enemy extends Role{
+    public Enemy(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+
+	String name;
 
     public String getName() {
         return name;

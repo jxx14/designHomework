@@ -10,7 +10,9 @@ public class Equipment1 extends Equipment{
 	}
 	
 	@Override
-	public void moreDefense(int defense){
-		
+	public void moreDefense(int d){
+		int defense = this.getAddDefense();
+		defense += d;
+		this.setAddDefense(defense);
 	}
 }
