@@ -12,8 +12,7 @@ public class Character1 extends Character {
 	public static int[] levelXps = {0,3,6,10,15,21,27};
 	
 	public Character1(String name, int hp, int defense, int attack){
-		super();
-		this.setName(name);
+		super(name);
 		this.setXp(0);
 		this.setHp(50);
 		this.setDefense(30);

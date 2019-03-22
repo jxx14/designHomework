@@ -7,6 +7,7 @@ package main.view;
 
 import main.model.enemy.Enemy;
 import main.model.role.Role;
+import main.model.role.Character;
 
 import javax.swing.*;
 import java.awt.*;

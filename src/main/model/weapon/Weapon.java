@@ -5,8 +5,6 @@ import main.model.role.Item;
 public abstract class Weapon extends Item {
 
 	private int addDamage;
-
-	
 	public abstract void moreDamage(int damage);
 
 
