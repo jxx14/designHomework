@@ -18,8 +18,8 @@ public class Character1 extends Character {
 		this.setDefense(30);
 		this.setAttack(20);
 		this.setLevelXps(levelXps);
-		this.setWeapons(null);
-		this.setEquipments(null);
+		this.setWeapon(null);
+		this.setEquipment(null);
 
 		
 	}
@@ -46,11 +46,10 @@ public class Character1 extends Character {
 
 	@Override
 	public int collectWeapon() {
-		List<Weapon> weapons = super.getWeapons();
+		Weapon w = super.getWeapon();
 		int attack = this.getAttack();
-		for (Weapon w : weapons){
-			attack += w.getAddDamage();
-		}
+		if(w!=null) attack += w.getAddDamage();
+		
 		this.setAttack(attack);
 		// TODO Auto-generated method stub
 		return 0;
@@ -58,45 +57,28 @@ public class Character1 extends Character {
 
 	@Override
 	public int collectEquipment() {
-		List<Equipment> eqs = super.getEquipments();
+		Equipment eq = super.getEquipment();
 		int defense = this.getDefense();
-		for (Equipment eq : eqs){
-			defense += eq.getAddDefense();
-		}
+		if(eq!=null) defense += eq.getAddDefense();
+		
 		this.setDefense(defense);
 		// TODO Auto-generated method stub
 		return 0;
 		
 	}
 
-	@Override
-	public void addWeapon(Weapon w) {
-		List<Weapon> lw = this.getWeapons();
-		lw.add(w);
-		this.setWeapons(lw);
-		// TODO Auto-generated method stub
-		
-	}
+
 	@Override
 	public void removeWeapon(Weapon w) {
 		// TODO Auto-generated method stub
-		List<Weapon> lw = this.getWeapons();
-		lw.remove(w);
-		this.setWeapons(lw);
+
+		this.setWeapon(null);
 	}
-	@Override
-	public void addEquipment(Equipment e) {
-		List<Equipment> le = this.getEquipments();
-		le.add(e);
-		this.setEquipments(le);
-		// TODO Auto-generated method stub
-		
-	}
+
 	@Override
 	public void removeEquipment(Equipment e) {
-		List<Equipment> le = this.getEquipments();
-		le.remove(e);
-		this.setEquipments(le);
+
+		this.setEquipment(null);
 		// TODO Auto-generated method stub
 		
 	}

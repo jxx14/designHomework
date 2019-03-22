@@ -24,6 +24,12 @@ public class RoleController {
 		
 	}
 	
+	public void addDefense(Character r){
+		r.collectEquipment();
+	}
 	
+	public void addAttack(Character r){
+		r.collectWeapon();
+	}
 
 }

@@ -1,6 +1,7 @@
 package main.view;
 
 
+import main.controller.RoleController;
 import main.model.enemy.*;
 import main.model.role.*;
 import main.model.role.Character;
@@ -26,6 +27,7 @@ public class MainView extends JFrame{
     private String skill;
     private String weapon;
     private String equipment;
+    private Character newc;
 
     public static void main(String[] args) {
         new MainView().choiceRole();
@@ -35,7 +37,6 @@ public class MainView extends JFrame{
     public void choiceRole() {
         String[] str={"role1","role2"};
         int index = 0;
-        Character newc = null;
         String roleKind = JOptionPane.showInputDialog(null,"选择角色类型","选择角色类型",1,null,str,str[0]).toString();
         for(int i=0; i<str.length; i++){
         	if(roleKind == str[i]){
@@ -76,7 +77,7 @@ public class MainView extends JFrame{
 
         //技能设置
         JLabel skillLabel=new JLabel("技能类型:");
-        JComboBox skillComboBox=new JComboBox();
+        JComboBox<String> skillComboBox=new JComboBox<String>();
         String[] skills={"不使用技能","技能1","技能2","技能组合"};
         for (int i = 0; i <skills.length ; i++) {
             skillComboBox.addItem(skills[i]);
@@ -84,12 +85,13 @@ public class MainView extends JFrame{
         skillComboBox.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 skill =e.getItem().toString();
+                
             }
         });
 
         //武器设置
         JLabel weaponLabel=new JLabel("武器类型:");
-        JComboBox weaponComboBox=new JComboBox();
+        JComboBox<String> weaponComboBox=new JComboBox<String>();
         String[] weapons={"不使用武器","武器1","武器2"};
         for (int i = 0; i <weapons.length ; i++) {
             weaponComboBox.addItem(weapons[i]);
@@ -102,7 +104,7 @@ public class MainView extends JFrame{
 
         //装备设置
         JLabel equipmentLabel=new JLabel("装备类型:");
-        JComboBox equipmentComboBox=new JComboBox();
+        JComboBox<String> equipmentComboBox=new JComboBox<String>();
         String[] equipments={"不使用装备","装备1","装备2"};
         for (int i = 0; i <weapons.length ; i++) {
             equipmentComboBox.addItem(equipments[i]);
@@ -126,7 +128,9 @@ public class MainView extends JFrame{
         jb.addActionListener(e -> {
             // 进行逻辑处理即可
             System.out.println("武器："+weapon+"    技能："+skill+"    装备："+equipment);
-            fight(role,enemy);
+            RoleController rc = new RoleController();
+            rc.addDefense(role);
+            rc.fight(role,enemy);
         });
 
         this.add(jta4);

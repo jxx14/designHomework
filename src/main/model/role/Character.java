@@ -10,8 +10,8 @@ public abstract class Character extends Role{
 
 	private int level;
 	private int xp;
-	private List<Weapon> weapons;
-	private List<Equipment> equipments;
+	private Weapon weapon;
+	private Equipment equipment;
 	private int[] levelXps; //表驱动
 	
 	public abstract void levelUp(int xp, int currentLevel);
@@ -19,9 +19,7 @@ public abstract class Character extends Role{
 	public abstract int collectWeapon();
 	public abstract int collectEquipment();
 
-	public abstract void addWeapon(Weapon w);
 	public abstract void removeWeapon(Weapon w);
-	public abstract void addEquipment(Equipment e);
 	public abstract void removeEquipment(Equipment e);
 	
 	public Character(String name){
@@ -42,17 +40,17 @@ public abstract class Character extends Role{
 	}
 
 	
-	public List<Weapon> getWeapons() {
-		return weapons;
+	public Weapon getWeapon() {
+		return weapon;
 	}
-	public void setWeapons(List<Weapon> weapons) {
-		this.weapons = weapons;
+	public void setWeapon(Weapon weapon) {
+		this.weapon = weapon;
 	}
-	public List<Equipment> getEquipments() {
-		return equipments;
+	public Equipment getEquipment() {
+		return equipment;
 	}
-	public void setEquipments(List<Equipment> equipments) {
-		this.equipments = equipments;
+	public void setEquipment(Equipment equipment) {
+		this.equipment = equipment;
 	}
 	public int[] getLevelXps() {
 		return levelXps;
