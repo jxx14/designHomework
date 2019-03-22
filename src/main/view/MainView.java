@@ -114,7 +114,7 @@ public class MainView extends JFrame{
         jb.addActionListener(e -> {
             // 进行逻辑处理即可
             System.out.println("武器："+weapon+"    技能："+skill+"    装备："+equipment);
-                    fight(role,enemy);
+            fight(role,enemy);
         });
 
         this.add(jta4);
@@ -126,5 +126,10 @@ public class MainView extends JFrame{
 
     }
 
+    /*
+    * 乱码测试
+    * */
+
+    //乱码测试
 
 }
