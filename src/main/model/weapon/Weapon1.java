@@ -2,10 +2,10 @@ package main.model.weapon;
 
 public class Weapon1 extends Weapon{
 	
-	public Weapon1(String name, int addDamage){
+	public Weapon1(){
 		this.setLevel(0);
-		this.setName(name);
-		this.setAddDamage(addDamage);
+		this.setName("Weapon1");
+		this.setAddDamage(40);
 	}
 
 	@Override

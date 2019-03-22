@@ -2,7 +2,7 @@ package main.model.equipment;
 
 public class Equipment1 extends Equipment{
 
-	public Equipment1(int level, String name, int addDefense){
+	public Equipment1(){
 		super();
 		super.setLevel(0);
 		super.setName("Aba");

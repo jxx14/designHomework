@@ -3,8 +3,10 @@ package main.view;
 
 import main.controller.RoleController;
 import main.model.enemy.*;
+import main.model.equipment.Equipment1;
 import main.model.role.*;
 import main.model.role.Character;
+import main.model.weapon.Weapon1;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,6 +62,8 @@ public class MainView extends JFrame{
 
         Enemy1 enemy = new Enemy1("小鬼");
         //enemy.setName("小鬼");
+        role.collectEquipment();
+        role.collectWeapon();
         fight(role,enemy);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    //窗口是否可以关闭
@@ -73,7 +77,10 @@ public class MainView extends JFrame{
 
         //敌我属性
         JLabel stationLabel=new JLabel("敌我属性:"+"\n"+role.getName()+","+enemy.getName()
-        +"防御:"+role.getDefense()+","+enemy.getDefense());
+        +"防御:"+role.getDefense()+","+enemy.getDefense()+"\n"
+        +"攻击:"+role.getAttack()+","+enemy.getAttack()+"\n"
+        +"生命:"+role.getHp()+","+enemy.getHp()+"\n"
+        );
 
         //技能设置
         JLabel skillLabel=new JLabel("技能类型:");
@@ -99,6 +106,22 @@ public class MainView extends JFrame{
         weaponComboBox.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 weapon =e.getItem().toString();
+                int index = 0;
+                for(int i=0; i<weapons.length; i++){
+                	if(weapon == weapons[i]){
+                		index = i;
+                	}
+                	
+                }
+                switch(index){
+                case 0:
+                	Weapon1 w1 = new Weapon1();
+                	role.setWeapon(w1);
+                	
+                case 1:
+                	Weapon2 w2 = new Weapon2();
+                	role.setWeapon(w2);
+                }
             }
         });
 
@@ -106,12 +129,28 @@ public class MainView extends JFrame{
         JLabel equipmentLabel=new JLabel("装备类型:");
         JComboBox<String> equipmentComboBox=new JComboBox<String>();
         String[] equipments={"不使用装备","装备1","装备2"};
-        for (int i = 0; i <weapons.length ; i++) {
+        for (int i = 0; i <equipments.length ; i++) {
             equipmentComboBox.addItem(equipments[i]);
         }
         equipmentComboBox.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 equipment =e.getItem().toString();
+                int index = 0;
+                for(int i=0; i<equipments.length; i++){
+                	if(equipment == equipments[i]){
+                		index = i;
+                	}
+                	
+                }
+                switch(index){
+                case 0:
+                	Equipment1 w1 = new Equipment1();
+                	role.setEquipment(w1);
+                	
+                case 1:
+                	Equipment2 w2 = new Equipment2();
+                	role.setEquipment(w2);
+                }
             }
         });
 
