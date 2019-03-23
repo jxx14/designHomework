@@ -2,6 +2,7 @@ package main.model.role;
 
 import main.model.equipment.Equipment;
 import main.model.skill.Skill;
+import main.model.skill.SkillTest;
 import main.model.weapon.Weapon;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class Character1 extends Character {
 	
 	
 	public Character1(String name){
+		
 		super(name);
 		this.setXp(0);
 		this.setHp(50);
@@ -23,7 +25,9 @@ public class Character1 extends Character {
 		this.setLevelXps(levelXps);
 		this.setWeapon(null);
 		this.setEquipment(null);
-		this.setSkills(skills);
+		SkillTest st = new SkillTest();
+		
+		this.setSkills(null);
 
 		
 	}
@@ -81,7 +85,7 @@ public class Character1 extends Character {
 
 	@Override
 	public void removeEquipment(Equipment e) {
-
+		
 		this.setEquipment(null);
 		// TODO Auto-generated method stub
 		
@@ -89,7 +93,14 @@ public class Character1 extends Character {
 	@Override
 	public int collectSkills() {
 		// TODO Auto-generated method stub
-		
+		List<Skill> skills = super.getSkills();
+		int attack = this.getAttack();
+		if(skills!=null){
+			for (Skill s:skills){
+				attack += s.getDamage();
+			}
+		}
+		this.setAttack(attack);
 		return 0;
 	}
 	
