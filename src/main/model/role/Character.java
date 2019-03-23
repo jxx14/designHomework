@@ -1,6 +1,7 @@
 package main.model.role;
 
 import main.model.equipment.Equipment;
+import main.model.skill.Skill;
 import main.model.weapon.Weapon;
 
 import java.util.List;
@@ -12,12 +13,15 @@ public abstract class Character extends Role{
 	private int xp;
 	private Weapon weapon;
 	private Equipment equipment;
+	private List<Skill> skills;
 	private int[] levelXps; //表驱动
+
 	
 	public abstract void levelUp(int xp, int currentLevel);
 	public abstract int getLevelFromXp(int xp);
 	public abstract int collectWeapon();
 	public abstract int collectEquipment();
+	public abstract int collectSkills();
 
 	public abstract void removeWeapon(Weapon w);
 	public abstract void removeEquipment(Equipment e);
@@ -57,6 +61,12 @@ public abstract class Character extends Role{
 	}
 	public void setLevelXps(int[] levelXps2) {
 		this.levelXps = levelXps2;
+	}
+	public List<Skill> getSkills() {
+		return skills;
+	}
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
 	}
 
 	

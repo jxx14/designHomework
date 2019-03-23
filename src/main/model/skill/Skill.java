@@ -11,7 +11,7 @@ public class Skill extends Item {
 	private int level;
 	private List<Skill> lst;
 	
-	public Skill(String name,int damage,int level){
+	public Skill(String name,int damage){
 		this.setName(name);
 		this.setDamage(damage);
 		this.setLevel(0);

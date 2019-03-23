@@ -1,6 +1,7 @@
 package main.model.role;
 
 import main.model.equipment.Equipment;
+import main.model.skill.Skill;
 import main.model.weapon.Weapon;
 
 import java.util.List;
@@ -10,6 +11,8 @@ public class Character1 extends Character {
 	public static final int length = 30;
 	public static final int width = 20;
 	public static int[] levelXps = {0,3,6,10,15,21,27};
+
+	
 	
 	public Character1(String name){
 		super(name);
@@ -20,6 +23,7 @@ public class Character1 extends Character {
 		this.setLevelXps(levelXps);
 		this.setWeapon(null);
 		this.setEquipment(null);
+		this.setSkills(skills);
 
 		
 	}
@@ -81,6 +85,12 @@ public class Character1 extends Character {
 		this.setEquipment(null);
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public int collectSkills() {
+		// TODO Auto-generated method stub
+		
+		return 0;
 	}
 	
 	

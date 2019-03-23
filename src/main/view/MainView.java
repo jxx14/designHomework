@@ -92,6 +92,20 @@ public class MainView extends JFrame{
         skillComboBox.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 skill =e.getItem().toString();
+                int index = 0;
+                for(int i=0; i<skills.length; i++){
+                	if(skill == skills[i]){
+                		index = i;
+                	}
+                	switch(index){
+                	case 0:
+                		role.setSkills(null);
+                	case 1:
+                		role.setSkills(skills[0]);
+                		
+                	}
+                	
+                }
                 
             }
         });

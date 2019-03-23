@@ -19,6 +19,8 @@ public class RoleController {
 		if (winner == r){
 			r.setXp(r.getXp() + (int)score);
 		}
+		r.setHp(cHp - eAttack);
+		e.setHp(eHp - cAttack);
 		return winner;
 		
 		
@@ -30,6 +32,8 @@ public class RoleController {
 	
 	public void addAttack(Character r){
 		r.collectWeapon();
+		r.collectSkills();
+		
 	}
 
 }
